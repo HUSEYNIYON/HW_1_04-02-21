@@ -6,7 +6,7 @@ namespace HW_1_04_02_2021
     {
         static void Main(string[] args)
         {
-            ConnectDB DbControler = new ConnectDB();
+            ConnectDB DbCon = new ConnectDB();
             while (true)
             {
                 Console.Write("\n\tВыберите комманду:\n1.Добавить\n2.Удалить\n3.Выбрать всё\n4.Выбрать один по Id\n5.Обновить\n6.Выход\n\n");
@@ -23,26 +23,26 @@ namespace HW_1_04_02_2021
                             string MiddleName = Console.ReadLine();
                             Console.Write("BirthDate(2020-04-15): ");
                             string BirthDate = Console.ReadLine();
-                            DbControler.Insert(FirstName, LastName, MiddleName, BirthDate);
+                            DbCon.Insert(FirstName, LastName, MiddleName, BirthDate);
                         }
                         break;
                     case "2":
                         {
                             Console.Write("Id: ");
                             int Id = int.Parse(Console.ReadLine());
-                            DbControler.Delete(Id);
+                            DbCon.Delete(Id);
                         }
                         break;
                     case "3":
                         {
-                            DbControler.SelectAll();
+                            DbCon.SelectAll();
                         }
                         break;
                     case "4":
                         {
                             Console.Write("Id: ");
                             int Id = int.Parse(Console.ReadLine());
-                            DbControler.SelectById(Id);
+                            DbCon.SelectById(Id);
                         }
                         break;
                     case "5":
@@ -57,7 +57,7 @@ namespace HW_1_04_02_2021
                             string BirthDate = Console.ReadLine();
                             Console.Write("Id: ");
                             int Id = int.Parse(Console.ReadLine());
-                            DbControler.UpdateById(Id, FirstName, LastName, MiddleName, BirthDate);
+                            DbCon.UpdateById(Id, FirstName, LastName, MiddleName, BirthDate);
                         }
                         break;
                     case "6": { return; }

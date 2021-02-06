@@ -33,7 +33,7 @@ namespace HW_1_04_02_2021
         public void SelectAll()
         {
             OpenConnection();
-            using (SqlCommand command = new SqlCommand("Select * from Person", connect))
+            using (SqlCommand command = new SqlCommand("SELECT * FROM Person", connect))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -71,12 +71,12 @@ namespace HW_1_04_02_2021
         public void UpdateById(int Id, string LastName, string FirstName, string MiddleName, string BirthDate)
         {
             OpenConnection();
-            using (SqlCommand command = new SqlCommand("UPDATE Person SET LastName = '" + LastName + "',FirstName ='" + FirstName + "',MiddleName ='" + MiddleName + "','" + Convert.ToDateTime(BirthDate) + "') where Id =" + Id, connect))
+            using (SqlCommand command = new SqlCommand($"Update Person set FirstName = '{LastName}', LastName = '{FirstName}', MiddleName = '{MiddleName}', BirthDate = '{BirthDate}' where id ={Id}", connect))
             {
                 if (command.ExecuteNonQuery() > 0)
                 {
                     MakeGreen();
-                    Console.WriteLine("Updated Person with " + Id + " Id!");
+                    Console.WriteLine("Обновленный стольбей с " + Id + " Id!");
                     MakeWhite();
                 }
                 else
